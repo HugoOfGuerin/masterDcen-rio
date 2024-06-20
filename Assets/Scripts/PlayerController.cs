@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
-        rb.gravityScale = originalGravity; //apos o dash voltar à gravidade original 
+        rb.gravityScale = originalGravity; //apos o dash voltar ï¿½ gravidade original 
         isDashing = false;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
@@ -123,5 +123,14 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position-transform.up * _castDistance, _boxSize);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Health hp = GetComponent<Health>();
+            hp.TakeDamage(5);
+        }
     }
 }

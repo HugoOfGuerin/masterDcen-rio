@@ -13,7 +13,7 @@ public class FallingPlatform : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _originalPosition = transform.position;
+        _originalPosition = transform.position; //fazer referencia a posição original da plataforma
         _collider = GetComponent<Collider2D>();
     }
 
@@ -33,16 +33,16 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator Fall()
     {
         yield return new WaitForSeconds(fallDelay);
-        _rigidbody.bodyType = RigidbodyType2D.Dynamic;
-        _collider.enabled = false;
+        _rigidbody.bodyType = RigidbodyType2D.Dynamic;//ativar gravidade na plataforma
+        _collider.enabled = false; //desligar o collider para poder passar pelos objetos no cenario
         yield return new WaitForSeconds(3f);
-        _collider.enabled = true;
+        _collider.enabled = true;//voltar a ativar
     }
 
     private IEnumerator Reset() 
     {
-        yield return new WaitForSeconds(fallDelay);
-        _rigidbody.bodyType= RigidbodyType2D.Kinematic;
-        transform.position = _originalPosition;
+        yield return new WaitForSeconds(0.5f);
+        _rigidbody.bodyType= RigidbodyType2D.Kinematic;//desativar a gravidade da plataforma
+        transform.position = _originalPosition;//devolver à posição original
     }
 }

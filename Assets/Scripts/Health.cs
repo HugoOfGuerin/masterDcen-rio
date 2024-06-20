@@ -1,21 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    private int health = 5;
+    private int _currentHealth = 5;
+    public int _maxHealth;
 
-    //funçao para dar dano ao gameobject onde é aplicado
+    public void Start()
+    {
+        _currentHealth = _maxHealth;
+    }
+
+    //funï¿½ao para dar dano ao gameobject onde ï¿½ aplicado
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        _currentHealth -= damage;
+        Debug.Log($"Damage: {damage}");
     }
 
     //detetar se o objeto tem menos de 0 de vida, se sim destruir o objeto
     public void Update()
     {
-        if (health <= 0) 
+        if (_currentHealth <= 0) 
         {
             Destroy(gameObject);
         }
