@@ -10,7 +10,8 @@ public class EnviromentHazard : MonoBehaviour
    {
         if (coll.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            PlayerHealth _playerHP = coll.gameObject.GetComponent<PlayerHealth>();
+            _playerHP.TakeDamage(10);
         }
    }
 }

@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            Health hp = GetComponent<Health>();
+            PlayerHealth hp = GetComponent<PlayerHealth>();
             hp.TakeDamage(5);
         }
     }

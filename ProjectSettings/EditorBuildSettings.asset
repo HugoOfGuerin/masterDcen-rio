@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Inventorytest.unity
+    guid: 5dd89336f536a924a804d048d546312d
+  - enabled: 1
+    path: Assets/Scenes/Rabbitown.unity
+    guid: 542a870ffcbf86d48bd93cc8f7f644d8
   m_configObjects: {}
